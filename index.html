@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XLCR STEAM Integration Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>XLCR STEAM Integration Generator</h1>
+    </header>
+
+    <nav class="nav-dashboard">
+      <div class="nav-section nav-buttons">
+        <button id="toggle-mode-button" aria-label="Toggle Dark Mode">Dark Mode</button>
+      </div>
+    </nav>
+
+    <main class="dashboard-area">
+      <section class="input-panel dashboard-container">
+        <h2 class="dashboard-header">Input Parameters</h2>
+        <form id="input-form" novalidate>
+          <div class="input-group">
+            <label for="topic">Topic:</label>
+            <input type="text" id="topic" placeholder="e.g., Photosynthesis" required aria-required="true">
+          </div>
+          <div class="input-group">
+            <label for="outcomes">Learning Outcomes:</label>
+            <input type="text" id="outcomes" placeholder="e.g., Understand the process, Identify key components (comma-separated)" required aria-required="true">
+          </div>
+          <div class="input-group">
+            <label for="age-group">Age Group:</label>
+            <input type="text" id="age-group" placeholder="e.g., 10-12" pattern="\d{1,2}(-\d{1,2})?" title="Enter an age or range (e.g., 10 or 10-12)" required aria-required="true">
+          </div>
+          <div class="input-group">
+            <label for="output-type">Output Type:</label>
+            <select id="output-type" aria-label="Select output type" required>
+              <option value="Ideas">Ideas</option>
+              <option value="Lesson Plan">Lesson Plan</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="time-minutes">Class Time (minutes):</label>
+            <input type="number" id="time-minutes" placeholder="e.g., 45" min="1" required aria-required="true">
+          </div>
+          <div class="input-group">
+            <label for="location-name">Location (Lesson Plan):</label>
+            <input type="text" id="location-name" placeholder="e.g., Outdoor garden (optional)">
+          </div>
+          <div class="controls">
+            <button type="submit" id="generate-button" aria-label="Generate STEAM content">Generate</button>
+            <button type="button" id="clear-button" aria-label="Clear all inputs">Clear All</button>
+            <button type="button" id="export-button" aria-label="Export generated text as DOC" disabled>Export DOC</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="output-panel dashboard-container">
+        <h2 class="output-header">Generated Output</h2>
+        <div id="output-text" class="output-scroll" aria-live="polite"></div>
+        <div id="error-message" class="error-message" aria-live="assertive"></div>
+      </section>
+    </main>
+
+    <div class="loading-overlay" id="loading-overlay" aria-hidden="true">
+      <div class="loading-spinner"></div>
+    </div>
+
+    <footer class="footer">XLCRSTEAMGPT| Rajat, 2025</footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
