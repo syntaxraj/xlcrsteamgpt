@@ -1,0 +1,398 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  :root {
+    --bg-primary: #f0f4f8;
+    --bg-secondary: #ffffff;
+    --bg-nav: #e6ecf2;
+    --text-primary: #2c3e50;
+    --text-secondary: #34495e;
+    --text-muted: #7f8c8d;
+    --border-color: #d5e1e8;
+    --accent-color: #3498db;
+    --accent-hover: #2980b9;
+    --input-bg: #f9fbfc;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --success-color: #2ecc71;
+    --error-color: #e74c3c;
+    --spacing-sm: 10px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --radius: 8px;
+  }
+  
+  body {
+    background: linear-gradient(135deg, var(--bg-primary), #dfe9f3);
+    color: var(--text-primary);
+    line-height: 1.6;
+    transition: filter 0.5s ease;
+  }
+  
+  body.locked {
+    filter: grayscale(100%);
+  }
+  
+  body.unlocked {
+    filter: grayscale(0%);
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: var(--spacing-lg) auto;
+    padding: var(--spacing-lg);
+    position: relative;
+  }
+  
+  .header {
+    text-align: center;
+    padding: var(--spacing-lg) 0;
+    background: linear-gradient(90deg, #3498db, #8e44ad);
+    color: #fff;
+    border-radius: 12px 12px 0 0;
+    box-shadow: var(--shadow);
+  }
+  
+  .header h1 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+  }
+  
+  .nav-dashboard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md);
+    background: var(--bg-nav);
+    border-radius: 0 0 12px 12px;
+    box-shadow: var(--shadow);
+  }
+  
+  .passkey-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    max-width: 50%;
+  }
+  
+  .passkey-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+    max-height: 200px;
+    opacity: 1;
+  }
+  
+  .passkey-input-group.hidden {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+  }
+  
+  .passkey-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .passkey-input-group label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+  
+  .passkey-input-group input {
+    padding: var(--spacing-sm);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    background: var(--input-bg);
+    transition: all 0.3s ease;
+    width: 100%;
+  }
+  
+  .passkey-input-group input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+    outline: none;
+  }
+  
+  #toggle-passkey-visibility {
+    position: absolute;
+    right: var(--spacing-sm);
+    padding: 5px var(--spacing-sm);
+    background: transparent;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    border-radius: var(--radius);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  #toggle-passkey-visibility:hover {
+    background: var(--accent-hover);
+    color: #fff;
+  }
+  
+  .passkey-tip {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  
+  .passkey-toggle {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background: var(--accent-color);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  
+  .passkey-toggle:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+  }
+  
+  .nav-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  button {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background: var(--accent-color);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  
+  button:hover:not(:disabled) {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+  }
+  
+  button:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  .dashboard-area {
+    display: flex;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+  }
+  
+  .dashboard-container {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow);
+    flex: 1;
+  }
+  
+  .input-panel {
+    flex: 1;
+  }
+  
+  .output-panel {
+    flex: 2;
+  }
+  
+  .dashboard-header, .output-header {
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .input-group label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+  
+  .input-group input, .input-group select {
+    padding: var(--spacing-sm);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    background: var(--input-bg);
+    transition: all 0.3s ease;
+  }
+  
+  .input-group input:focus, .input-group select:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+    outline: none;
+  }
+  
+  .input-error {
+    border-color: var(--error-color) !important;
+  }
+  
+  .controls {
+    display: flex;
+    gap: 10px;
+    margin-top: var(--spacing-lg);
+  }
+  
+  .output-scroll {
+    min-height: 100px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding: var(--spacing-md);
+    background: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    color: var(--text-secondary);
+  }
+  
+  .output-scroll h1 { font-size: 1.5rem; margin: 10px 0; }
+  .output-scroll h2 { font-size: 1.3rem; margin: 8px 0; }
+  .output-scroll h3 { font-size: 1.1rem; margin: 6px 0; }
+  .output-scroll b { font-weight: 600; }
+  .output-scroll i { font-style: italic; }
+  .output-scroll pre { background: #e2e8f0; padding: 10px; border-radius: 6px; }
+  .output-scroll code { background: #e2e8f0; padding: 2px 6px; border-radius: 4px; }
+  .output-scroll hr { border: 0; border-top: 1px solid var(--border-color); margin: 10px 0; }
+  .output-scroll ul { padding-left: 20px; }
+  
+  .error-message {
+    color: var(--error-color);
+    background: #fef1f1;
+    padding: var(--spacing-sm);
+    border-radius: var(--radius);
+    border: 1px solid var(--error-color);
+    font-size: 0.9rem;
+    margin-top: var(--spacing-sm);
+    display: none;
+  }
+  
+  .loading-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #fff;
+    border-top: 4px solid var(--accent-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  .footer {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    background: var(--bg-secondary);
+    padding: 5px 10px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    z-index: 1000;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .dark-mode {
+    --bg-primary: #2c3e50;
+    --bg-secondary: #34495e;
+    --bg-nav: #3e5c76;
+    --text-primary: #ecf0f1;
+    --text-secondary: #bdc3c7;
+    --text-muted: #95a5a6;
+    --border-color: #7f8c8d;
+    --input-bg: #3e5c76;
+    --accent-color: #1abc9c;
+    --accent-hover: #16a085;
+  }
+  
+  .dark-mode body {
+    background: linear-gradient(135deg, var(--bg-primary), #34495e);
+  }
+  
+  .dark-mode .header {
+    background: linear-gradient(90deg, #1abc9c, #8e44ad);
+  }
+  
+  .dark-mode .dashboard-container {
+    background: var(--bg-secondary);
+  }
+  
+  .dark-mode .input-group input,
+  .dark-mode .input-group select {
+    background: var(--input-bg);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+  }
+  
+  .dark-mode .output-scroll {
+    background: var(--input-bg);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+  }
+  
+  .dark-mode .error-message {
+    background: #4a2c2a;
+  }
+  
+  .dark-mode .footer {
+    background: var(--bg-nav);
+    color: var(--text-primary);
+  }
+  
+  @media (max-width: 768px) {
+    .dashboard-area {
+      flex-direction: column;
+    }
+    .nav-dashboard {
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+    .passkey-section {
+      max-width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      padding: var(--spacing-sm);
+      margin: var(--spacing-sm) auto;
+    }
+    .controls {
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+    button {
+      width: 100%;
+    }
+  }
