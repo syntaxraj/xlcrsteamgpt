@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
       </head>
       <body>
         ${_0x2c8f.innerHTML}
-        <div class="footer">STEAMGPT by Rajat</div>
+        <div class="footer">XLCR STEAM INTEGRATOR| Rajat, 2025</div>
       </body>
       </html>
     `;
@@ -253,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const _0x1d9f = URL.createObjectURL(_0x8f7d);
     const _0x6d8e = document.createElement('a');
     _0x6d8e.href = _0x1d9f;
-    _0x6d8e.download = 'steam_output.doc';
+    _0x6d8e.download = 'steam_plan.doc';
     document.body.appendChild(_0x6d8e);
     _0x6d8e.click();
     document.body.removeChild(_0x6d8e);
