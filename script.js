@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
       </head>
       <body>
         ${_0x2c8f.innerHTML}
-        <div class="footer">XLCR STEAM INTEGRATOR| Rajat, 2025</div>
+        <div class="footer">By XLCR STEAM INTEGRATOR| Rajat, 2025</div>
       </body>
       </html>
     `;
